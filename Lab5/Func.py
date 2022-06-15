@@ -40,13 +40,17 @@ def play():
     while True:
         for i in playerList:
             currentResult.append(throw(i))
+        
+        winner_id=0
 
-        maximum = currentResult.index(max(currentResult))
-
-        allResult[maximum]+=1
-
-        print("Победил ", playerList[maximum], " кол-во побед:",allResult[maximum])
+        while winner_id <len(currentResult):
+            if currentResult[winner_id] == max(currentResult):
+                allResult[winner_id]= allResult[winner_id] + 1
+                print("Победил ", playerList[winner_id], " кол-во побед:",allResult[winner_id])
+            winner_id = winner_id+1
     
+        currentResult.clear()
+
         end=input("Для выхода наберите exit")
         if end=="exit":
             break
